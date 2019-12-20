@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.publicpmr",
+      "nativeLanguage": "ru"
+    },
+    "jhipsterVersion": "6.5.1",
+    "applicationType": "monolith",
+    "baseName": "publicpmr",
+    "packageName": "com.publicpmr",
+    "packageFolder": "com/publicpmr",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NGRjMTdmNDlhNzEwYWI1YWFkMjdlMWJmZmNiZmIwZTYyZmM2MjJkMjJhYWZmNDY3YzFkN2E4NDJiZDBhMDMxMDZiY2RmMmNkOGVlYWQ1MTBiMTFhNDA0ZmRiM2Y5MWIwZDBjM2QxZjU4NTNhNTQyZjRmY2NjZDYxMTNjMTg0Njg=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "ru",
+    "languages": ["ru", "en", "ro", "ua"],
+    "blueprints": []
+  }
+}
