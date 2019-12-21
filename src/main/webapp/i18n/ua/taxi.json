@@ -1,0 +1,24 @@
+{
+  "publicpmrApp": {
+    "taxi": {
+      "home": {
+        "title": "Taxis",
+        "createLabel": "Створити новий Taxi",
+        "createOrEditLabel": "Створити чи редагувати Taxi",
+        "notFound": "No Taxis found"
+      },
+      "created": "Новий Taxi створений з ідентифікатором {{ param }}",
+      "updated": "Taxi оновлений з ідентифікатором {{ param }}",
+      "deleted": "Taxi видалений з ідентифікатором {{ param }}",
+      "delete": {
+        "question": "Ви впевнені, що хочете видалити Taxi {{ id }}?"
+      },
+      "detail": {
+        "title": "Taxi"
+      },
+      "title": "Title",
+      "phone": "Phone",
+      "active": "Active"
+    }
+  }
+}

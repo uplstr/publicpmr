@@ -1,0 +1,24 @@
+{
+  "publicpmrApp": {
+    "taxi": {
+      "home": {
+        "title": "Taxis",
+        "createLabel": "Create a new Taxi",
+        "createOrEditLabel": "Create or edit a Taxi",
+        "notFound": "No Taxis found"
+      },
+      "created": "A new Taxi is created with identifier {{ param }}",
+      "updated": "A Taxi is updated with identifier {{ param }}",
+      "deleted": "A Taxi is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Taxi {{ id }}?"
+      },
+      "detail": {
+        "title": "Taxi"
+      },
+      "title": "Title",
+      "phone": "Phone",
+      "active": "Active"
+    }
+  }
+}

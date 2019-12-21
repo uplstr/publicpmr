@@ -1,0 +1,24 @@
+{
+  "publicpmrApp": {
+    "taxi": {
+      "home": {
+        "title": "Taxis",
+        "createLabel": "Creeare o nouă entitate Taxi",
+        "createOrEditLabel": "Creeare sau editare Taxi",
+        "notFound": "No Taxis found"
+      },
+      "created": "A fost creată o nouă entitate Taxi cu identificatorul {{ param }}",
+      "updated": "Taxi cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Taxi cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Taxi {{ id }}?"
+      },
+      "detail": {
+        "title": "Taxi"
+      },
+      "title": "Title",
+      "phone": "Phone",
+      "active": "Active"
+    }
+  }
+}
