@@ -1,16 +1,20 @@
 import { Component, OnInit, AfterViewInit, Renderer, ElementRef } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
-import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { JhiLanguageService } from 'ng-jhipster';
+import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { JhiEventManager, JhiLanguageService } from 'ng-jhipster';
 
 import { EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from 'app/shared/constants/error.constants';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { Register } from './register.service';
+import { LoginService } from 'app/core/login/login.service';
+import { Router } from '@angular/router';
+import { StateStorageService } from 'app/core/auth/state-storage.service';
 
 @Component({
   selector: 'jhi-register',
-  templateUrl: './register.component.html'
+  templateUrl: './register.component.html',
+  providers: [LoginService, NgbActiveModal, JhiEventManager, StateStorageService]
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
   doNotMatch: string;
@@ -19,6 +23,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   errorUserExists: string;
   success: boolean;
   modalRef: NgbModalRef;
+  authenticationError: boolean;
 
   registerForm = this.fb.group({
     login: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50), Validators.pattern('^[_.@A-Za-z0-9-]*$')]],
@@ -33,7 +38,12 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     private registerService: Register,
     private elementRef: ElementRef,
     private renderer: Renderer,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private router: Router,
+    public activeModal: NgbActiveModal,
+    private eventManager: JhiEventManager,
+    private stateStorageService: StateStorageService
   ) {}
 
   ngOnInit() {
@@ -61,7 +71,34 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         registerAccount = { ...registerAccount, langKey };
         this.registerService.save(registerAccount).subscribe(
           () => {
-            this.success = true;
+            this.loginService.login({ username: login, password, rememberMe: true }).subscribe(
+              () => {
+                this.authenticationError = false;
+                this.activeModal.dismiss('login success');
+                if (
+                  this.router.url === '/account/register' ||
+                  this.router.url.startsWith('/account/activate') ||
+                  this.router.url.startsWith('/account/reset/')
+                ) {
+                  this.router.navigate(['']);
+                }
+
+                this.eventManager.broadcast({
+                  name: 'authenticationSuccess',
+                  content: 'Sending Authentication Success'
+                });
+
+                // previousState was set in the authExpiredInterceptor before being redirected to login modal.
+                // since login is successful, go to stored previousState and clear previousState
+                const redirect = this.stateStorageService.getUrl();
+                if (redirect) {
+                  this.stateStorageService.storeUrl(null);
+                  this.router.navigateByUrl(redirect);
+                }
+                this.success = true;
+              },
+              response => this.processError(response)
+            );
           },
           response => this.processError(response)
         );
