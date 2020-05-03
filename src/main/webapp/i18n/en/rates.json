@@ -1,0 +1,25 @@
+{
+  "publicpmrApp": {
+    "rates": {
+      "home": {
+        "title": "Rates",
+        "createLabel": "Create a new Rates",
+        "createOrEditLabel": "Create or edit a Rates",
+        "notFound": "No Rates found"
+      },
+      "created": "A new Rates is created with identifier {{ param }}",
+      "updated": "A Rates is updated with identifier {{ param }}",
+      "deleted": "A Rates is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rates {{ id }}?"
+      },
+      "detail": {
+        "title": "Rates"
+      },
+      "bankSystemName": "Bank System Name",
+      "banks": "Banks",
+      "curs": "Curs",
+      "exchange": "Exchange"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Rates.
+    -->
+    <changeSet id="20200503230153-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="banks_id"
+                                 baseTableName="rates"
+                                 constraintName="fk_rates_banks_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="banks"/>
+
+        <addForeignKeyConstraint baseColumnNames="rates_id"
+                                 baseTableName="rates_curs"
+                                 constraintName="fk_rates_curs_rates_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rates"/>
+
+        <addForeignKeyConstraint baseColumnNames="curs_id"
+                                 baseTableName="rates_curs"
+                                 constraintName="fk_rates_curs_curs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="curs"/>
+        
+    </changeSet>
+</databaseChangeLog>

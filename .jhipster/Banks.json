@@ -1,0 +1,46 @@
+{
+    "name": "Banks",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "systemName",
+            "fieldType": "BankName",
+            "fieldValues": "PRB,AGR,SBR,EXIM",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "rates",
+            "otherEntityRelationshipName": "banks",
+            "relationshipName": "rates",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200503230154",
+    "entityTableName": "banks",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

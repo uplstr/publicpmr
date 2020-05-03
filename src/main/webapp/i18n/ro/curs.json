@@ -1,0 +1,25 @@
+{
+  "publicpmrApp": {
+    "curs": {
+      "home": {
+        "title": "Curs",
+        "createLabel": "Creeare o nouă entitate Curs",
+        "createOrEditLabel": "Creeare sau editare Curs",
+        "notFound": "No Curs found"
+      },
+      "created": "A fost creată o nouă entitate Curs cu identificatorul {{ param }}",
+      "updated": "Curs cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Curs cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Curs {{ id }}?"
+      },
+      "detail": {
+        "title": "Curs"
+      },
+      "purchase": "Purchase",
+      "sale": "Sale",
+      "currency": "Currency",
+      "rates": "Rates"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "publicpmrApp": {
+    "banks": {
+      "home": {
+        "title": "Banks",
+        "createLabel": "Створити новий Banks",
+        "createOrEditLabel": "Створити чи редагувати Banks",
+        "notFound": "No Banks found"
+      },
+      "created": "Новий Banks створений з ідентифікатором {{ param }}",
+      "updated": "Banks оновлений з ідентифікатором {{ param }}",
+      "deleted": "Banks видалений з ідентифікатором {{ param }}",
+      "delete": {
+        "question": "Ви впевнені, що хочете видалити Banks {{ id }}?"
+      },
+      "detail": {
+        "title": "Banks"
+      },
+      "title": "Title",
+      "systemName": "System Name",
+      "status": "Status",
+      "rates": "Rates"
+    }
+  }
+}
