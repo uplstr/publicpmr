@@ -70,9 +70,7 @@ export class ExchangeCrudComponent implements OnInit {
       .then(data => {
         this.exchangeService.query(moment()).subscribe(query => {
           console.log(query);
-          if (query.body.length === 0) {
-            this.createExchange(data);
-          }
+          this.createExchange(data);
         });
       })
       .then(() => this.getByDate());
