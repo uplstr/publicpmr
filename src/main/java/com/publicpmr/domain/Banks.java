@@ -1,5 +1,4 @@
 package com.publicpmr.domain;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -36,10 +35,6 @@ public class Banks implements Serializable {
     @NotNull
     @Column(name = "status", nullable = false)
     private Boolean status;
-
-    @OneToOne(mappedBy = "banks")
-    @JsonIgnore
-    private Rates rates;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -87,19 +82,6 @@ public class Banks implements Serializable {
 
     public void setStatus(Boolean status) {
         this.status = status;
-    }
-
-    public Rates getRates() {
-        return rates;
-    }
-
-    public Banks rates(Rates rates) {
-        this.rates = rates;
-        return this;
-    }
-
-    public void setRates(Rates rates) {
-        this.rates = rates;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

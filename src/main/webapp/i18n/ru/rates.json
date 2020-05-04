@@ -17,7 +17,7 @@
         "title": "Rates"
       },
       "bankSystemName": "Bank System Name",
-      "banks": "Banks",
+      "bank": "Bank",
       "curs": "Curs",
       "exchange": "Exchange"
     }

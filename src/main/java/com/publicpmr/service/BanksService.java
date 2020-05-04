@@ -14,7 +14,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link Banks}.
@@ -60,21 +59,6 @@ public class BanksService {
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
-
-
-    /**
-    *  Get all the banks where Rates is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<BanksDTO> findAllWhereRatesIsNull() {
-        log.debug("Request to get all banks where Rates is null");
-        return StreamSupport
-            .stream(banksRepository.findAll().spliterator(), false)
-            .filter(banks -> banks.getRates() == null)
-            .map(banksMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
 
     /**
      * Get one banks by id.

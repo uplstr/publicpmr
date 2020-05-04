@@ -12,8 +12,6 @@ import org.mapstruct.*;
 public interface BanksMapper extends EntityMapper<BanksDTO, Banks> {
 
 
-    @Mapping(target = "rates", ignore = true)
-    Banks toEntity(BanksDTO banksDTO);
 
     default Banks fromId(Long id) {
         if (id == null) {

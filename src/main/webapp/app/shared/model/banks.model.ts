@@ -5,11 +5,10 @@ export interface IBanks {
   title?: string;
   systemName?: BankName;
   status?: boolean;
-  ratesId?: number;
 }
 
 export class Banks implements IBanks {
-  constructor(public id?: number, public title?: string, public systemName?: BankName, public status?: boolean, public ratesId?: number) {
+  constructor(public id?: number, public title?: string, public systemName?: BankName, public status?: boolean) {
     this.status = this.status || false;
   }
 }

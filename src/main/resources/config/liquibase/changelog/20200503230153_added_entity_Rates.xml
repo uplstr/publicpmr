@@ -19,8 +19,8 @@
             <column name="bank_system_name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="banks_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_rates_banks_id" />
+            <column name="bank_id" type="bigint">
+                <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>

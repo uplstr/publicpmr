@@ -18,7 +18,6 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing {@link com.publicpmr.domain.Banks}.
@@ -84,15 +83,10 @@ public class BanksResource {
      * {@code GET  /banks} : get all the banks.
      *
 
-     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of banks in body.
      */
     @GetMapping("/banks")
-    public List<BanksDTO> getAllBanks(@RequestParam(required = false) String filter) {
-        if ("rates-is-null".equals(filter)) {
-            log.debug("REST request to get all Bankss where rates is null");
-            return banksService.findAllWhereRatesIsNull();
-        }
+    public List<BanksDTO> getAllBanks() {
         log.debug("REST request to get all Banks");
         return banksService.findAll();
     }

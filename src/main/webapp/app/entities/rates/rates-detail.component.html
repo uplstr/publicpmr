@@ -9,10 +9,10 @@
                 <dd>
                     <span jhiTranslate="{{'publicpmrApp.BankName.' + rates.bankSystemName}}">{{rates.bankSystemName}}</span>
                 </dd>
-                <dt><span jhiTranslate="publicpmrApp.rates.banks">Banks</span></dt>
+                <dt><span jhiTranslate="publicpmrApp.rates.bank">Bank</span></dt>
                 <dd>
-                    <div *ngIf="rates.banksId">
-                        <a [routerLink]="['/banks', rates.banksId, 'view']">{{rates.banksId}}</a>
+                    <div *ngIf="rates.bankId">
+                        <a [routerLink]="['/banks', rates.bankId, 'view']">{{rates.bankId}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="publicpmrApp.rates.curs">Curs</span></dt>

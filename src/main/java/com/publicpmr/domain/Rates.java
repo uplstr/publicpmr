@@ -1,5 +1,6 @@
 package com.publicpmr.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -31,9 +32,9 @@ public class Rates implements Serializable {
     @Column(name = "bank_system_name", nullable = false)
     private BankName bankSystemName;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Banks banks;
+    @ManyToOne
+    @JsonIgnoreProperties("rates")
+    private Banks bank;
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -70,17 +71,17 @@ public class Rates implements Serializable {
         this.bankSystemName = bankSystemName;
     }
 
-    public Banks getBanks() {
-        return banks;
+    public Banks getBank() {
+        return bank;
     }
 
-    public Rates banks(Banks banks) {
-        this.banks = banks;
+    public Rates bank(Banks banks) {
+        this.bank = banks;
         return this;
     }
 
-    public void setBanks(Banks banks) {
-        this.banks = banks;
+    public void setBank(Banks banks) {
+        this.bank = banks;
     }
 
     public Set<Curs> getCurs() {

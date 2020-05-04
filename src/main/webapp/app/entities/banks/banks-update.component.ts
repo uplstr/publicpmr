@@ -5,11 +5,8 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { JhiAlertService } from 'ng-jhipster';
 import { IBanks, Banks } from 'app/shared/model/banks.model';
 import { BanksService } from './banks.service';
-import { IRates } from 'app/shared/model/rates.model';
-import { RatesService } from 'app/entities/rates/rates.service';
 
 @Component({
   selector: 'jhi-banks-update',
@@ -18,8 +15,6 @@ import { RatesService } from 'app/entities/rates/rates.service';
 export class BanksUpdateComponent implements OnInit {
   isSaving: boolean;
 
-  rates: IRates[];
-
   editForm = this.fb.group({
     id: [],
     title: [null, [Validators.required]],
@@ -27,22 +22,13 @@ export class BanksUpdateComponent implements OnInit {
     status: [null, [Validators.required]]
   });
 
-  constructor(
-    protected jhiAlertService: JhiAlertService,
-    protected banksService: BanksService,
-    protected ratesService: RatesService,
-    protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
-  ) {}
+  constructor(protected banksService: BanksService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
 
   ngOnInit() {
     this.isSaving = false;
     this.activatedRoute.data.subscribe(({ banks }) => {
       this.updateForm(banks);
     });
-    this.ratesService
-      .query()
-      .subscribe((res: HttpResponse<IRates[]>) => (this.rates = res.body), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   updateForm(banks: IBanks) {
@@ -89,12 +75,5 @@ export class BanksUpdateComponent implements OnInit {
 
   protected onSaveError() {
     this.isSaving = false;
-  }
-  protected onError(errorMessage: string) {
-    this.jhiAlertService.error(errorMessage, null, null);
-  }
-
-  trackRatesById(index: number, item: IRates) {
-    return item.id;
   }
 }

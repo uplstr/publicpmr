@@ -10,6 +10,8 @@ import { CursService } from 'app/entities/curs/curs.service';
 import { IRates } from 'app/shared/model/rates.model';
 import { ICurs } from 'app/shared/model/curs.model';
 import { RatesService } from 'app/entities/rates/rates.service';
+import { pipe } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 const ngHtmlParser = require('angular-html-parser');
 
@@ -66,8 +68,14 @@ export class ExchangeCrudComponent implements OnInit {
       })
       .then(data => this.fillForm(data))
       .then(data => {
-        this.createExchange(data);
-      });
+        this.exchangeService.query(moment()).subscribe(query => {
+          console.log(query);
+          if (query.body.length === 0) {
+            this.createExchange(data);
+          }
+        });
+      })
+      .then(() => this.getByDate());
   }
 
   private fillForm(data) {
@@ -81,7 +89,7 @@ export class ExchangeCrudComponent implements OnInit {
 
     this.BANKS.map((bank, index) => {
       exchange.rates.push({
-        banksId: index,
+        bankId: index,
         bankSystemName: bank,
         curs: []
       });
@@ -124,39 +132,42 @@ export class ExchangeCrudComponent implements OnInit {
 
     const rates: IRates[] = [];
 
-    console.log(data);
-
     data.rates.map(ratesData => {
-      console.log(ratesData);
+      console.log(1);
 
-      const curses: ICurs[] = [];
+      const rate: IRates = {
+        curs: [],
+        bankSystemName: ratesData.bankSystemName,
+        bankId: ratesData.bankId + 1
+      };
 
       ratesData.curs.map(cursData => {
-        console.log(cursData);
+        console.log(2);
         this.cursService.create(cursData).subscribe(cursResponse => {
-          curses.push(cursResponse.body);
+          rate.curs.push(cursResponse.body);
         });
       });
 
-      console.log(curses);
-
-      const rate: IRates = {
-        curs: curses,
-        bankSystemName: ratesData.bankSystemName,
-        banksId: ratesData.banksId
-      };
-
-      console.log(rate);
-
-      this.ratesService.create(rate).subscribe(rateResponse => {
-        rates.push(rateResponse.body);
-      });
+      setTimeout(() => {
+        console.log(rate);
+        this.ratesService.create(rate).subscribe(rateResponse => rates.push(rateResponse.body));
+      }, 0);
     });
 
-    exchanges.rates = rates;
+    setTimeout(() => {
+      console.log(rates);
 
-    this.exchangeService.create(exchanges);
+      exchanges.rates = rates;
 
-    console.log(exchanges);
+      this.exchangeService.create(exchanges).subscribe(() => {});
+
+      console.log(exchanges);
+    }, 5000);
+  }
+
+  private getByDate() {
+    this.exchangeService.query(moment()).subscribe(query => {
+      console.log(query);
+    });
   }
 }

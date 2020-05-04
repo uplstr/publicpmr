@@ -24,15 +24,7 @@
             ]
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-one",
-            "otherEntityName": "rates",
-            "otherEntityRelationshipName": "banks",
-            "relationshipName": "rates",
-            "ownerSide": false
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20200503230154",
     "entityTableName": "banks",
     "dto": "mapstruct",

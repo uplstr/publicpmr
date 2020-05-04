@@ -16,6 +16,7 @@ export class RatesService {
   constructor(protected http: HttpClient) {}
 
   create(rates: IRates): Observable<EntityResponseType> {
+    console.log(rates);
     return this.http.post<IRates>(this.resourceUrl, rates, { observe: 'response' });
   }
 

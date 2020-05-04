@@ -5,7 +5,7 @@ import { BankName } from 'app/shared/model/enumerations/bank-name.model';
 export interface IRates {
   id?: number;
   bankSystemName?: BankName;
-  banksId?: number;
+  bankId?: number;
   curs?: ICurs[];
   exchanges?: IExchange[];
 }
@@ -14,7 +14,7 @@ export class Rates implements IRates {
   constructor(
     public id?: number,
     public bankSystemName?: BankName,
-    public banksId?: number,
+    public bankId?: number,
     public curs?: ICurs[],
     public exchanges?: IExchange[]
   ) {}

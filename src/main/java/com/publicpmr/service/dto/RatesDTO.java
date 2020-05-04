@@ -17,7 +17,7 @@ public class RatesDTO implements Serializable {
     private BankName bankSystemName;
 
 
-    private Long banksId;
+    private Long bankId;
 
     private Set<CursDTO> curs = new HashSet<>();
 
@@ -37,12 +37,12 @@ public class RatesDTO implements Serializable {
         this.bankSystemName = bankSystemName;
     }
 
-    public Long getBanksId() {
-        return banksId;
+    public Long getBankId() {
+        return bankId;
     }
 
-    public void setBanksId(Long banksId) {
-        this.banksId = banksId;
+    public void setBankId(Long banksId) {
+        this.bankId = banksId;
     }
 
     public Set<CursDTO> getCurs() {
@@ -79,7 +79,7 @@ public class RatesDTO implements Serializable {
         return "RatesDTO{" +
             "id=" + getId() +
             ", bankSystemName='" + getBankSystemName() + "'" +
-            ", banks=" + getBanksId() +
+            ", bank=" + getBankId() +
             "}";
     }
 }

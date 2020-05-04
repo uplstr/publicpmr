@@ -12,12 +12,11 @@
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "many-to-one",
             "otherEntityName": "banks",
             "otherEntityRelationshipName": "rates",
-            "relationshipName": "banks",
-            "otherEntityField": "id",
-            "ownerSide": true
+            "relationshipName": "bank",
+            "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-many",

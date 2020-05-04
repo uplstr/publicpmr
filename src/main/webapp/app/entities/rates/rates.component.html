@@ -20,7 +20,7 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"  jhiSortBy="bankSystemName"><span jhiTranslate="publicpmrApp.rates.bankSystemName">Bank System Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th scope="col"  jhiSortBy="banksId"><span jhiTranslate="publicpmrApp.rates.banks">Banks</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="bankId"><span jhiTranslate="publicpmrApp.rates.bank">Bank</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -29,8 +29,8 @@
                 <td><a [routerLink]="['/rates', rates.id, 'view' ]">{{rates.id}}</a></td>
                 <td jhiTranslate="{{'publicpmrApp.BankName.' + rates.bankSystemName}}">{{rates.bankSystemName}}</td>
                 <td>
-                    <div *ngIf="rates.banksId">
-                        <a [routerLink]="['/banks', rates.banksId , 'view' ]" >{{rates.banksId}}</a>
+                    <div *ngIf="rates.bankId">
+                        <a [routerLink]="['/banks', rates.bankId , 'view' ]" >{{rates.bankId}}</a>
                     </div>
                 </td>
                 <td class="text-right">

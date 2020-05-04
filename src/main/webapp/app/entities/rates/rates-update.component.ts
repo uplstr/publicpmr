@@ -31,7 +31,7 @@ export class RatesUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     bankSystemName: [null, [Validators.required]],
-    banksId: [],
+    bankId: [],
     curs: [null, Validators.required]
   });
 
@@ -50,21 +50,9 @@ export class RatesUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ rates }) => {
       this.updateForm(rates);
     });
-    this.banksService.query({ filter: 'rates-is-null' }).subscribe(
-      (res: HttpResponse<IBanks[]>) => {
-        if (!this.editForm.get('banksId').value) {
-          this.banks = res.body;
-        } else {
-          this.banksService
-            .find(this.editForm.get('banksId').value)
-            .subscribe(
-              (subRes: HttpResponse<IBanks>) => (this.banks = [subRes.body].concat(res.body)),
-              (subRes: HttpErrorResponse) => this.onError(subRes.message)
-            );
-        }
-      },
-      (res: HttpErrorResponse) => this.onError(res.message)
-    );
+    this.banksService
+      .query()
+      .subscribe((res: HttpResponse<IBanks[]>) => (this.banks = res.body), (res: HttpErrorResponse) => this.onError(res.message));
     this.cursService
       .query()
       .subscribe((res: HttpResponse<ICurs[]>) => (this.curs = res.body), (res: HttpErrorResponse) => this.onError(res.message));
@@ -77,7 +65,7 @@ export class RatesUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: rates.id,
       bankSystemName: rates.bankSystemName,
-      banksId: rates.banksId,
+      bankId: rates.bankId,
       curs: rates.curs
     });
   }
@@ -101,7 +89,7 @@ export class RatesUpdateComponent implements OnInit {
       ...new Rates(),
       id: this.editForm.get(['id']).value,
       bankSystemName: this.editForm.get(['bankSystemName']).value,
-      banksId: this.editForm.get(['banksId']).value,
+      bankId: this.editForm.get(['bankId']).value,
       curs: this.editForm.get(['curs']).value
     };
   }

@@ -11,10 +11,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {BanksMapper.class, CursMapper.class})
 public interface RatesMapper extends EntityMapper<RatesDTO, Rates> {
 
-    @Mapping(source = "banks.id", target = "banksId")
+    @Mapping(source = "bank.id", target = "bankId")
     RatesDTO toDto(Rates rates);
 
-    @Mapping(source = "banksId", target = "banks")
+    @Mapping(source = "bankId", target = "bank")
     @Mapping(target = "removeCurs", ignore = true)
     @Mapping(target = "exchanges", ignore = true)
     @Mapping(target = "removeExchange", ignore = true)

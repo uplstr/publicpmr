@@ -31,8 +31,8 @@ relationship ManyToMany {
     Rates{curs required} to Curs{rates required}   
 }
 
-relationship OneToOne {
-    Rates to Banks
+relationship ManyToOne {
+    Rates{bank} to Banks
 }
 
 
