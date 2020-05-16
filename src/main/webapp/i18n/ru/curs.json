@@ -1,0 +1,25 @@
+{
+  "publicpmrApp": {
+    "curs": {
+      "home": {
+        "title": "Curs",
+        "createLabel": "Создать новый Curs",
+        "createOrEditLabel": "Создать или отредактировать Curs",
+        "notFound": "No Curs found"
+      },
+      "created": "Новый Curs создан с идентификатором {{ param }}",
+      "updated": "Curs обновлен с идентификатором {{ param }}",
+      "deleted": "Curs удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Curs {{ id }}?"
+      },
+      "detail": {
+        "title": "Curs"
+      },
+      "purchase": "Purchase",
+      "sale": "Sale",
+      "currency": "Currency",
+      "rates": "Rates"
+    }
+  }
+}

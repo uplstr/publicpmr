@@ -1,0 +1,23 @@
+{
+  "publicpmrApp": {
+    "exchange": {
+      "home": {
+        "title": "Exchanges",
+        "createLabel": "Creeare o nouă entitate Exchange",
+        "createOrEditLabel": "Creeare sau editare Exchange",
+        "notFound": "No Exchanges found"
+      },
+      "created": "A fost creată o nouă entitate Exchange cu identificatorul {{ param }}",
+      "updated": "Exchange cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Exchange cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Exchange {{ id }}?"
+      },
+      "detail": {
+        "title": "Exchange"
+      },
+      "date": "Date",
+      "rates": "Rates"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "publicpmrApp": {
+    "rates": {
+      "home": {
+        "title": "Rates",
+        "createLabel": "Створити новий Rates",
+        "createOrEditLabel": "Створити чи редагувати Rates",
+        "notFound": "No Rates found"
+      },
+      "created": "Новий Rates створений з ідентифікатором {{ param }}",
+      "updated": "Rates оновлений з ідентифікатором {{ param }}",
+      "deleted": "Rates видалений з ідентифікатором {{ param }}",
+      "delete": {
+        "question": "Ви впевнені, що хочете видалити Rates {{ id }}?"
+      },
+      "detail": {
+        "title": "Rates"
+      },
+      "bankSystemName": "Bank System Name",
+      "bank": "Bank",
+      "curs": "Curs",
+      "exchange": "Exchange"
+    }
+  }
+}
