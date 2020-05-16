@@ -24,11 +24,6 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           path: 'account',
           loadChildren: () => import('./account/account.module').then(m => m.PublicpmrAccountModule)
         },
-        {
-          path: 'exchange-crud',
-          canActivate: [UserRouteAccessService],
-          loadChildren: () => import('./modules/exchange-crud/exchange-crud.module').then(m => m.ExchangeCrudModule)
-        },
         ...LAYOUT_ROUTES
       ],
       { enableTracing: DEBUG_INFO_ENABLED }
