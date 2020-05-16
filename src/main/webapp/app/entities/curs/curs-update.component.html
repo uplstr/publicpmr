@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-curs-heading" jhiTranslate="publicpmrApp.curs.home.createOrEditLabel">Create or edit a Curs</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="publicpmrApp.curs.purchase" for="field_purchase">Purchase</label>
+                    <input type="number" class="form-control" name="purchase" id="field_purchase"
+                           formControlName="purchase"/>
+                    <div *ngIf="editForm.get('purchase').invalid && (editForm.get('purchase').dirty || editForm.get('purchase').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('purchase').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('purchase')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="publicpmrApp.curs.sale" for="field_sale">Sale</label>
+                    <input type="number" class="form-control" name="sale" id="field_sale"
+                           formControlName="sale"/>
+                    <div *ngIf="editForm.get('sale').invalid && (editForm.get('sale').dirty || editForm.get('sale').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sale').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('sale')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="publicpmrApp.curs.currency" for="field_currency">Currency</label>
+                    <select class="form-control" name="currency" formControlName="currency" id="field_currency">
+                        <option value="RUP">{{'publicpmrApp.CurrencyName.RUP' | translate}}</option>
+                        <option value="USD">{{'publicpmrApp.CurrencyName.USD' | translate}}</option>
+                        <option value="EUR">{{'publicpmrApp.CurrencyName.EUR' | translate}}</option>
+                        <option value="RUB">{{'publicpmrApp.CurrencyName.RUB' | translate}}</option>
+                        <option value="UAH">{{'publicpmrApp.CurrencyName.UAH' | translate}}</option>
+                        <option value="MDL">{{'publicpmrApp.CurrencyName.MDL' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('currency').invalid && (editForm.get('currency').dirty || editForm.get('currency').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('currency').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

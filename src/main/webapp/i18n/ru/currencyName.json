@@ -1,0 +1,13 @@
+{
+  "publicpmrApp": {
+    "CurrencyName": {
+      "null": "",
+      "RUP": "RUP",
+      "USD": "USD",
+      "EUR": "EUR",
+      "RUB": "RUB",
+      "UAH": "UAH",
+      "MDL": "MDL"
+    }
+  }
+}

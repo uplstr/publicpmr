@@ -1,0 +1,24 @@
+{
+  "publicpmrApp": {
+    "banks": {
+      "home": {
+        "title": "Banks",
+        "createLabel": "Creeare o nouă entitate Banks",
+        "createOrEditLabel": "Creeare sau editare Banks",
+        "notFound": "No Banks found"
+      },
+      "created": "A fost creată o nouă entitate Banks cu identificatorul {{ param }}",
+      "updated": "Banks cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Banks cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Banks {{ id }}?"
+      },
+      "detail": {
+        "title": "Banks"
+      },
+      "title": "Title",
+      "systemName": "System Name",
+      "status": "Status"
+    }
+  }
+}

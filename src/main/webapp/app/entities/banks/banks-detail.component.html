@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="banks">
+            <h2><span jhiTranslate="publicpmrApp.banks.detail.title">Banks</span> {{banks.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="publicpmrApp.banks.title">Title</span></dt>
+                <dd>
+                    <span>{{banks.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="publicpmrApp.banks.systemName">System Name</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'publicpmrApp.BankName.' + banks.systemName}}">{{banks.systemName}}</span>
+                </dd>
+                <dt><span jhiTranslate="publicpmrApp.banks.status">Status</span></dt>
+                <dd>
+                    <span>{{banks.status}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/banks', banks.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

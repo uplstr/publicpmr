@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="curs">
+            <h2><span jhiTranslate="publicpmrApp.curs.detail.title">Curs</span> {{curs.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="publicpmrApp.curs.purchase">Purchase</span></dt>
+                <dd>
+                    <span>{{curs.purchase}}</span>
+                </dd>
+                <dt><span jhiTranslate="publicpmrApp.curs.sale">Sale</span></dt>
+                <dd>
+                    <span>{{curs.sale}}</span>
+                </dd>
+                <dt><span jhiTranslate="publicpmrApp.curs.currency">Currency</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'publicpmrApp.CurrencyName.' + curs.currency}}">{{curs.currency}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/curs', curs.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

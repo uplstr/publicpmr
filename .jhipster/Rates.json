@@ -1,0 +1,50 @@
+{
+    "name": "Rates",
+    "fields": [
+        {
+            "fieldName": "bankSystemName",
+            "fieldType": "BankName",
+            "fieldValues": "PRB,AGR,SBR,EXIM",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "banks",
+            "otherEntityRelationshipName": "rates",
+            "relationshipName": "bank",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "curs",
+            "otherEntityRelationshipName": "rates",
+            "relationshipValidateRules": "required",
+            "relationshipName": "curs",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "exchange",
+            "otherEntityRelationshipName": "rates",
+            "relationshipValidateRules": "required",
+            "relationshipName": "exchange",
+            "otherEntityField": "date",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200503230153",
+    "entityTableName": "rates",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

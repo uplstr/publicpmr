@@ -1,0 +1,11 @@
+{
+  "publicpmrApp": {
+    "BankName": {
+      "null": "",
+      "PRB": "PRB",
+      "AGR": "AGR",
+      "SBR": "SBR",
+      "EXIM": "EXIM"
+    }
+  }
+}

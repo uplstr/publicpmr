@@ -1,0 +1,48 @@
+{
+    "name": "Curs",
+    "fields": [
+        {
+            "fieldName": "purchase",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sale",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "CurrencyName",
+            "fieldValues": "RUP,USD,EUR,RUB,UAH,MDL",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "rates",
+            "otherEntityRelationshipName": "curs",
+            "relationshipValidateRules": "required",
+            "relationshipName": "rates",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200503230155",
+    "entityTableName": "curs",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

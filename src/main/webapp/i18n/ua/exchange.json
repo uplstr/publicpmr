@@ -1,0 +1,23 @@
+{
+  "publicpmrApp": {
+    "exchange": {
+      "home": {
+        "title": "Exchanges",
+        "createLabel": "Створити новий Exchange",
+        "createOrEditLabel": "Створити чи редагувати Exchange",
+        "notFound": "No Exchanges found"
+      },
+      "created": "Новий Exchange створений з ідентифікатором {{ param }}",
+      "updated": "Exchange оновлений з ідентифікатором {{ param }}",
+      "deleted": "Exchange видалений з ідентифікатором {{ param }}",
+      "delete": {
+        "question": "Ви впевнені, що хочете видалити Exchange {{ id }}?"
+      },
+      "detail": {
+        "title": "Exchange"
+      },
+      "date": "Date",
+      "rates": "Rates"
+    }
+  }
+}

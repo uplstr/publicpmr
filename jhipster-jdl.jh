@@ -1,0 +1,43 @@
+entity Exchange {
+	date ZonedDateTime required    
+}
+
+entity Rates {
+	bankSystemName BankName required
+}
+
+entity Banks {
+	title String required
+    systemName BankName required
+    status Boolean required
+} 
+
+entity Curs {
+	purchase Integer required
+    sale Integer required 
+    currency CurrencyName required
+}
+
+enum CurrencyName {
+    RUP, USD, EUR, RUB, UAH, MDL
+}
+
+enum BankName {
+    PRB, AGR, SBR, EXIM
+}
+
+relationship ManyToMany {
+    Exchange{rates required} to Rates{exchange(date) required},
+    Rates{curs required} to Curs{rates required}   
+}
+
+relationship ManyToOne {
+    Rates{bank} to Banks
+}
+
+
+dto all with mapstruct
+paginate Exchange, Rates, Curs with pagination
+
+
+
