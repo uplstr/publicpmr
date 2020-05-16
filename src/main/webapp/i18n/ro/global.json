@@ -10,6 +10,10 @@
         "bankAccount": "ContBancar",
         "label": "Etichetă",
         "operation": "Operație",
+        "exchange": "Exchange",
+        "rates": "Rates",
+        "banks": "Banks",
+        "curs": "Curs",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

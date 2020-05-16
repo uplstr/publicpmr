@@ -42,6 +42,14 @@ public class CacheConfiguration {
             createCache(cm, com.publicpmr.domain.User.class.getName());
             createCache(cm, com.publicpmr.domain.Authority.class.getName());
             createCache(cm, com.publicpmr.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.publicpmr.domain.Exchange.class.getName());
+            createCache(cm, com.publicpmr.domain.Exchange.class.getName() + ".rates");
+            createCache(cm, com.publicpmr.domain.Rates.class.getName());
+            createCache(cm, com.publicpmr.domain.Rates.class.getName() + ".curs");
+            createCache(cm, com.publicpmr.domain.Rates.class.getName() + ".exchanges");
+            createCache(cm, com.publicpmr.domain.Banks.class.getName());
+            createCache(cm, com.publicpmr.domain.Curs.class.getName());
+            createCache(cm, com.publicpmr.domain.Curs.class.getName() + ".rates");
             // jhipster-needle-ehcache-add-entry
         };
     }
